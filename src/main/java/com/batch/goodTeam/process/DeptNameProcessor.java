@@ -18,9 +18,9 @@ public class DeptNameProcessor implements ItemProcessor<MyUser, MyUser> {
             new HashMap<>();
 
     public DeptNameProcessor() {
-        DEPT_NAMES.put("001", "Technology");
-        DEPT_NAMES.put("002", "Operations");
-        DEPT_NAMES.put("003", "Accounts");
+        DEPT_NAMES.put("001", "會計部");
+        DEPT_NAMES.put("002", "法務部");
+        DEPT_NAMES.put("003", "資訊部");
     }
 
     @Override
