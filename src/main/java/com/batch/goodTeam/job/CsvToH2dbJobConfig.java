@@ -19,33 +19,16 @@ import com.batch.goodTeam.entity.MyUser;
 import com.batch.goodTeam.process.DeptNameProcessor;
 import com.batch.goodTeam.writer.DBWriter;
 
-@Configuration
-@EnableBatchProcessing
+
 public class CsvToH2dbJobConfig {
 
-	@Autowired
-	public JobBuilderFactory jobBuilderFactory;
+	// import BuilderFactory
 	
-	@Autowired
-	public StepBuilderFactory stepBuilderFactory;
+	// Create Job
 	
-	@Bean
-	public Job csvToH2Job() {
-		return jobBuilderFactory.get("csvToH2Job")
-				.start(csvToH2Step(null,null))
-				.build();
-	}
-	@Bean
-	public Step csvToH2Step(DeptNameProcessor processor, DBWriter writer) {
-		
-		return stepBuilderFactory.get("csvToH2Step")
-				.<MyUser,MyUser>chunk(100)
-				.reader(csvItemReader())
-				.processor(processor)
-				.writer(writer)
-				.build();
-	}
+	// Create Step
 	
+	// Create ItemReader
 	 @Bean
 	    public FlatFileItemReader<MyUser> csvItemReader() {
 

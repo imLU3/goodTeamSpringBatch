@@ -10,26 +10,19 @@ import org.springframework.stereotype.Component;
 
 import com.batch.goodTeam.entity.MyUser;
 
-@Component
-@StepScope
-public class DeptNameProcessor implements ItemProcessor<MyUser, MyUser> {
+
+public class DeptNameProcessor {
 
     private static final Map<String, String> DEPT_NAMES =
             new HashMap<>();
 
     public DeptNameProcessor() {
-        DEPT_NAMES.put("001", "Technology");
-        DEPT_NAMES.put("002", "Operations");
-        DEPT_NAMES.put("003", "Accounts");
+        DEPT_NAMES.put("001", "高雄");
+        DEPT_NAMES.put("002", "台中");
+        DEPT_NAMES.put("003", "台北");
     }
 
-    @Override
-    public MyUser process(MyUser user) throws Exception {
-        String deptCode = user.getDept();
-        String dept = DEPT_NAMES.get(deptCode);
-        user.setDept(dept);
-        user.setTime(new Date());
-        System.out.println(String.format("Converted from [%s] to [%s]", deptCode, dept));
-        return user;
-    }
+    // Override ItemProcessor
+    // to make deptCode -> dept by using this processor
+   
 }
