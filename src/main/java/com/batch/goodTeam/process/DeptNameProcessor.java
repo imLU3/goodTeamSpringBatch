@@ -17,9 +17,9 @@ public class DeptNameProcessor {
             new HashMap<>();
 
     public DeptNameProcessor() {
-        DEPT_NAMES.put("001", "高雄");
-        DEPT_NAMES.put("002", "台中");
-        DEPT_NAMES.put("003", "台北");
+        DEPT_NAMES.put("001", "會計部");
+        DEPT_NAMES.put("002", "財務部");
+        DEPT_NAMES.put("003", "資訊部");
     }
 
     // Override ItemProcessor
