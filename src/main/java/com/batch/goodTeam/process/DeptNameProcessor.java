@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 
 import com.batch.goodTeam.entity.MyUser;
 
-
 public class DeptNameProcessor {
 
     private static final Map<String, String> DEPT_NAMES =

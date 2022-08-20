@@ -17,33 +17,27 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/load")
 public class LoadController {
 
-    @Autowired
-    JobLauncher jobLauncher;
+    // @Autowired Job & Launcher
 
     @Autowired
-    Job job;
     
     @GetMapping
     public Map<String, Object> load() throws Exception {
     	
     	System.out.println("Batch Starting...");
-    	
-        Map<String, JobParameter> maps = new HashMap<>();
-        maps.put("time", new JobParameter(System.currentTimeMillis()));
+    	// create a Map to put a new JobParameter
      
         // JobParameters的參數會在整個JOB執行過程中被共用,
-        JobParameters parameters = new JobParameters(maps);
+    	
         // Every time the batch is run, a new JobExecution is created
-        JobExecution jobExecution = jobLauncher.run(job, parameters);
+        
         
         System.out.println("Batch is Running...");
-        System.out.println("JobExecution: " + jobExecution.getStatus());
-        
-        
+//        System.out.println("JobExecution: " + jobExecution.getStatus());
         Map<String, Object> finalStatus = new HashMap<>();
-        finalStatus.put("CreateTime", jobExecution.getCreateTime());
-        finalStatus.put("EndTime", jobExecution.getEndTime());
-        finalStatus.put("Status", jobExecution.getStatus());
+//        finalStatus.put("CreateTime", jobExecution.getCreateTime());
+//        finalStatus.put("EndTime", jobExecution.getEndTime());
+//        finalStatus.put("Status", jobExecution.getStatus());
 
         return finalStatus;
     }
